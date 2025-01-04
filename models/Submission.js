@@ -27,4 +27,4 @@ const submissionSchema = new Schema({
     timestamps: true
 });
 
-export const Submission = model('Submission', submissionSchema, 'Submissions');
+export const SubmissionModel = model('Submission', submissionSchema, 'Submissions');

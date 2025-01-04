@@ -74,4 +74,4 @@ const challengeSchema = new Schema({
     timestamps: true
 });
 
-export const Challenge = model('Challenge', challengeSchema, 'challenges');
+export const ChallengeModel = model('Challenge', challengeSchema, 'challenges');

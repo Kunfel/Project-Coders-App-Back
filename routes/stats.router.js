@@ -7,8 +7,8 @@ import {
 
 const router = express.Router();
 
-router.get('/solved-challenges', getSolvedChallengesStats);
+router.get('/coder/:id/solved-challenges', getSolvedChallengesStats);
 router.get('/trending-categories', getTrendingCategories);
-router.get('/heatmap', getHeatmap);
+router.get('/coder/:id/heatmap', getHeatmap);
 
 export default router;

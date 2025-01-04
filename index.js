@@ -4,7 +4,7 @@ import challengeRouter from './routes/challenge.router.js';
 import submissionRouter from './routes/submission.router.js';
 import leaderboardRouter from './routes/leaderboard.router.js';
 import statsRouter from './routes/stats.router.js';
-import {connectDB} from './lib/db.js';
+import connectDB from './lib/db.js';
 
 const app = express();
 

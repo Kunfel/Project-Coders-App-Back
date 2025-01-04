@@ -27,6 +27,11 @@ const userSchema = new Schema({
         enum: ['Coder', 'Manager'],
         required: true
     },
+   
+    is_verified: {
+        type: Boolean,
+        default: false,
+    },
     description: {
         type: String,
         required: function() {
@@ -44,4 +49,4 @@ const userSchema = new Schema({
     timestamps: true
 });
 
-export const User = model('User', userSchema, 'users');
+export const UserModel = model('User', userSchema, 'users');
