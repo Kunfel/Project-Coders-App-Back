@@ -1,7 +1,9 @@
+import { ChallengeService } from './services/challenge.service.js';
+
 export const createChallenge = async (req, res) => {
   try {
-    // Service implementation will be added later
-    res.status(201).json({ message: 'Challenge created successfully' });
+    const challenge = await ChallengeService.createChallenge(req.body, req.user._id);
+    res.status(201).json(challenge);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -9,9 +11,9 @@ export const createChallenge = async (req, res) => {
 
 export const getAllChallenges = async (req, res) => {
   try {
-    const { category } = req.query;
-    // Service implementation will be added later
-    res.status(200).json({ message: 'Challenges retrieved successfully' });
+    const isManager = req.user.role === 'Manager';
+    const challenges = await ChallengeService.listChallenges(req.user._id, isManager);
+    res.status(200).json(challenges);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -20,8 +22,9 @@ export const getAllChallenges = async (req, res) => {
 export const getChallengeById = async (req, res) => {
   try {
     const { id } = req.params;
-    // Service implementation will be added later
-    res.status(200).json({ message: 'Challenge retrieved successfully' });
+    const isManager = req.user.role === 'Manager';
+    const challenge = await ChallengeService.getChallengeById(id, req.user._id, isManager);
+    res.status(200).json(challenge);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -29,8 +32,8 @@ export const getChallengeById = async (req, res) => {
 
 export const getCategories = async (req, res) => {
   try {
-    // Service implementation will be added later
-    res.status(200).json({ message: 'Categories retrieved successfully' });
+    const categories = await ChallengeService.listCategories();
+    res.status(200).json(categories);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
