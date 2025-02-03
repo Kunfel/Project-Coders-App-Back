@@ -4,6 +4,7 @@ import challengeRouter from './routes/challenge.router.js';
 import submissionRouter from './routes/submission.router.js';
 import leaderboardRouter from './routes/leaderboard.router.js';
 import statsRouter from './routes/stats.router.js';
+import connectDB from './lib/db.js';
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use('/stats', statsRouter);
 
 app.listen(3000, () => {
     console.log("Server is running on http://localhost:3000");
+    connectDB();
 });
 
 export default app;
