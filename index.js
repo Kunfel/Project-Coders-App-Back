@@ -5,6 +5,9 @@ import submissionRouter from './routes/submission.router.js';
 import leaderboardRouter from './routes/leaderboard.router.js';
 import statsRouter from './routes/stats.router.js';
 import connectDB from './lib/db.js';
+import envLoader from './utils.js';
+
+envLoader(process.env.APP_ENV);
 
 const app = express();
 
